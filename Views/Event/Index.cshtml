@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FPEntities.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateEventView")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HostID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HostID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditEventView", new { id=item.EventID }) |
+            @Html.ActionLink("Attendees", "Details", new { id=item.EventID }) |
+            @Html.ActionLink("Delete", "DeleteEventView", new { id=item.EventID })
+        </td>
+    </tr>
+}
+
+</table>
